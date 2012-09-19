@@ -49,25 +49,18 @@ $.fn.limitCharacters = function () {
 $.fn.disable = function (action) {
     var text = $(this).html();
     if (action) {
-        if (text.substr(text.length - 1) == "r") {
-            text = text.substr(0, text.length - 1);
-            text += "ndo";
-        }
+        if (text.substr(text.length - 1) == "r")
+            text = text.substr(0, text.length - 1) + "ndo";
         text += "...";
-        $(this).html(text);
-        $(this).attr("disabled", true);
     }
     else {
-        if (text.substr(text.length - 3) == "...") {
+        if (text.substr(text.length - 3) == "...")
             text = text.substr(0, text.length - 3);
-        }
-        if (text.substr(text.length - 3) == "ndo") {
-            text = text.substr(0, text.length - 3);
-            text += "r";
-        }
-        $(this).html(text);
-        $(this).attr("disabled", false);
+        if (text.substr(text.length - 3) == "ndo")
+            text = text.substr(0, text.length - 3) + "r";
     }
+    $(this).html(text);
+    $(this).attr("disabled", action);
 };
 
 $.fn.toggleDisable = function () {
