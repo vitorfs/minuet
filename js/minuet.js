@@ -22,7 +22,7 @@ $.fn.isEmpty = function () {
     }
 };
 
-$.fn.countCharacters = function (limit) {       
+$.fn.countCharacters = function (limit) {
     if (limit - $(this).val().length <= 0) {
         $(this).val($(this).val().substr(0, limit));
         $(this).closest(".control-group").addClass("warning");
